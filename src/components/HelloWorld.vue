@@ -1,0 +1,106 @@
+<template>
+  <div class="hello">
+    <div class="btn">
+      <div class="btn_dialog_bottom" @click="onBtnDialogBottom()">底部弹窗</div>
+      <div class="btn_dialog_top" @click="onBtnDialogTop()">顶部弹窗</div>
+    </div>
+
+    <div class="mask" v-show="maskFlag" @click="onDismiss()"></div>
+    <div
+      class="dialog_bottom"
+      :class="[maskFlag ? 'mask_content_transition_bottom' : '']"
+    ></div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      msg: "Welcome to Your Vue.js App",
+      maskFlag: false,
+    };
+  },
+  created() {},
+  methods: {
+    onBtnDialogBottom() {
+      this.maskFlag = true;
+    },
+    onDismiss() {
+      this.maskFlag = false;
+    },
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped >
+.btn {
+  width: 100%;
+  height: auto;
+  overflow: auto;
+}
+.btn_dialog_bottom {
+  position: fixed;
+  width: 100px;
+  line-height: 50px;
+  height: 50px;
+  border-radius: 4px;
+  color: white;
+  background: #42b983;
+}
+.btn_dialog_top {
+  position: fixed;
+  width: 100px;
+  left: 120px;
+  line-height: 50px;
+  height: 50px;
+  border-radius: 4px;
+  color: white;
+  background: #42b983;
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog_bottom {
+  width: 100%;
+  z-index: 9;
+  position: fixed;
+  bottom: -375px;
+  border-radius: 20px 20px 0px 0px;
+  height: 375px;
+  background: white;
+  transition: all 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+.dialog_top {
+  width: 100%;
+  z-index: 9;
+  position: fixed;
+  top: -375;
+  border-radius: 20px 20px 0px 0px;
+  height: 375px;
+  background: white;
+  transition: all 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+.mask_content_transition_bottom {
+  visibility: visible;
+  bottom: 0;
+  opacity: 1;
+}
+.mask_content_transition_top {
+  visibility: visible;
+  top: 0;
+  opacity: 1;
+}
+</style>
