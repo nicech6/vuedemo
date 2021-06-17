@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style  lang="scss" >
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,8 +22,16 @@ export default {
 }
 html,
 body {
-  width: 100%;
-  height: 100%;
+  width: 750px;
+  margin: 0 auto;
   background: rgba(245, 246, 246, 1);
+  
+}
+.max-750 {
+  #app {
+    width: 750px;
+    margin: 0 auto;
+  }
 }
 </style>
+ 
